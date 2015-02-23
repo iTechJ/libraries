@@ -1,0 +1,11 @@
+t1(arg1,arg2) ::= "template1 <arg1> <arg2>" // single-line template
+
+// multi line template
+t2(arg1) ::= <<  
+template2 <arg1>
+>>
+
+// multi line template that ignores indentation and newlines
+t3(arg1) ::= <%
+template3 <arg1>
+%>

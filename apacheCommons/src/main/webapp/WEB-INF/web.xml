@@ -1,0 +1,36 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+
+        <display-name>Archetype Created Web Application</display-name>
+
+        <context-param>
+                <param-name>repository</param-name>
+                <param-value>/tmp</param-value>
+        </context-param>
+        <context-param>
+                <param-name>upload.dir</param-name>
+                <param-value>/tmp/upload</param-value>
+        </context-param>
+
+        <servlet>
+                <servlet-name>UploadHandler</servlet-name>
+                <servlet-class>com.itechart.maven.fileupload.UploadHandler</servlet-class>
+        </servlet>
+
+        <servlet-mapping>
+                <servlet-name>UploadHandler</servlet-name>
+                <url-pattern>/upload</url-pattern>
+        </servlet-mapping>
+
+        <welcome-file-list>
+                <welcome-file>index.jsp</welcome-file>
+        </welcome-file-list>
+
+        <init-param>
+  <param-name>org.apache.velocity.properties</param-name>
+  <param-value>/WEB-INF/velocity.properties</param-value>
+</init-param>        
+</web-app>
