@@ -13,7 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
- 
+import org.apache.commons.lang.StringUtils;
+
 public class FileUploadServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
      
@@ -56,7 +57,7 @@ public class FileUploadServlet extends HttpServlet {
  
         // constructs the directory path to store upload file
         // this path is relative to application's directory
-        String uploadPath = getServletContext().getRealPath("")
+        String uploadPath = getServletContext().getContextPath()
                 + File.separator + UPLOAD_DIRECTORY;
          
         // creates the directory if it does not exist
@@ -76,13 +77,18 @@ public class FileUploadServlet extends HttpServlet {
                     // processes only fields that are not form fields
                     if (!item.isFormField()) {
                         String fileName = new File(item.getName()).getName();
-                        String filePath = uploadPath + File.separator + fileName;
-                        File storeFile = new File(filePath);
- 
-                        // saves the file on disk
-                        item.write(storeFile);
-                        request.setAttribute("message",
-                            "Upload has been done successfully!");
+
+                        if (StringUtils.isNotEmpty(fileName)) {
+                            String filePath = uploadPath + File.separator + fileName;
+                            File storeFile = new File(filePath);
+
+                            // saves the file on disk
+                            item.write(storeFile);
+                            request.setAttribute("message",
+                                    "Upload has been done successfully!");
+
+                            System.out.println(storeFile.getAbsolutePath());
+                        }
                     }
                 }
             }

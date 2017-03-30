@@ -25,9 +25,19 @@ public class TestLoggers extends TestCase {
     	
     	log.debug("Test LogBack");
     }
-	
-	
-	public TestLoggers( String testName )
+
+    public void testInvalidCode()
+    {
+        org.slf4j.Logger log = LoggerFactory.getLogger(this.getClass());
+
+        int i = 10;
+        while (i > 0) {
+            log.debug("Test LogBack, index {}", i--);
+        }
+    }
+
+
+    public TestLoggers( String testName )
     {
         super( testName );
     }

@@ -17,7 +17,7 @@
 
         <servlet>
                 <servlet-name>UploadHandler</servlet-name>
-                <servlet-class>com.itechart.maven.fileupload.UploadHandler</servlet-class>
+                <servlet-class>itechart.apacheCommons.FileUploadServlet</servlet-class>
         </servlet>
 
         <servlet-mapping>
@@ -29,8 +29,8 @@
                 <welcome-file>index.jsp</welcome-file>
         </welcome-file-list>
 
-        <init-param>
-  <param-name>org.apache.velocity.properties</param-name>
-  <param-value>/WEB-INF/velocity.properties</param-value>
-</init-param>        
+        <!--<init-param>-->
+  <!--<param-name>org.apache.velocity.properties</param-name>-->
+  <!--<param-value>/WEB-INF/velocity.properties</param-value>-->
+<!--</init-param>        -->
 </web-app>
